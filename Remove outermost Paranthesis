@@ -1,1 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+string removeOutermostParentheses(const string& s) {
+    string result = "";
+    int depth = 0;
+
+    for (char ch : s) {
+        if (ch == '(') {
+            if (depth > 0) {
+                result += ch;
+            }
+            depth++;
+        } else if (ch == ')') {
+            depth--;
+            if (depth > 0) {
+                result += ch;
+            }
+        }
+    }
+    return result;
+}
+int main() {
+    string s = "(()())(())";
+    cout << "Original string: " << s << endl;
+    string result = removeOutermostParentheses(s);
+    cout << "After removing outermost parentheses: " << result << endl;
+    return 0;
+}
 

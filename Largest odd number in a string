@@ -1,1 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+string largestOddNumber(string s)
+{
+    string largestOdd = "";
+    for(int i = s.length() - 1; i >= 0; --i)
+    {
+        if((s[i] - '0') % 2 != 0)
+        {
+            largestOdd = s.substr(0, i + 1);
+            break;
+        }
+    }
+    return largestOdd;
+}
+int main()
+{
+    string s = "142067";
+    cout << "Original string: " << s << endl;
+    string result = largestOddNumber(s);
+    if(result.empty())
+    {
+        cout << "No odd number can be formed." << endl;
+    }
+    else
+    {
+        cout << "Largest odd number: " << result << endl;
+    }
+    return 0;
+}
 

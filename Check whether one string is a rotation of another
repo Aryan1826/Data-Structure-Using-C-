@@ -1,1 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+bool isRotation(string s1, string s2)
+{
+    if (s1.length() != s2.length())
+    {
+        return false;
+    }
+    string s1s1 = s1 + s1;
+    size_t found = s1s1.find(s2);
+    return (found < s1s1.length());
+}
+int main()
+{
+    string s1 = "waterbottle";
+    string s2 = "rbottlewat";
+    if (isRotation(s1, s2))
+    {
+        cout << "\"" << s2 << "\" is a rotation of \"" << s1 << "\"" << endl;
+    }
+    else
+    {
+        cout << "\"" << s2 << "\" is NOT a rotation of \"" << s1 << "\"" << endl;
+    }
+    return 0;
+}
 

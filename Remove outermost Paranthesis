@@ -4,7 +4,6 @@ using namespace std;
 string removeOutermostParentheses(const string& s) {
     string result = "";
     int depth = 0;
-
     for (char ch : s) {
         if (ch == '(') {
             if (depth > 0) {
